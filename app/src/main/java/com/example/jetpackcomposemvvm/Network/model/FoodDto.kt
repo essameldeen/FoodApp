@@ -2,7 +2,7 @@ package com.example.jetpackcomposemvvm.Network.model
 
 import com.google.gson.annotations.SerializedName
 
-class FoodNetworkEntity (
+data class FoodDto (
 
     @SerializedName("pk")
     var pk: Int? = null,

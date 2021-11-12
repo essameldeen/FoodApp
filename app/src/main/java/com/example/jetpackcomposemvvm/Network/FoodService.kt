@@ -1,6 +1,6 @@
 package com.example.jetpackcomposemvvm.Network
 
-import com.example.jetpackcomposemvvm.Network.model.FoodNetworkEntity
+import com.example.jetpackcomposemvvm.Network.model.FoodDto
 import com.example.jetpackcomposemvvm.Network.responses.FoodSearchResponse
 import retrofit2.http.GET
 import retrofit2.http.Header
@@ -18,5 +18,5 @@ interface FoodService {
     suspend fun get(
         @Header("Authorization") token: String,
         @Query("id") id: Int
-    ): FoodNetworkEntity
+    ): FoodDto
 }
