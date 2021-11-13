@@ -6,7 +6,7 @@
 
     <fragment
         android:id="@+id/recipeListFragment"
-        android:name="com.example.jetpackcomposemvvm.ui.RecipeListFragment"
+        android:name="com.example.jetpackcomposemvvm.presentation.ui.foodList.ui.FoodListFragment"
         android:label="RecipeListFragment" >
         <action
             android:id="@+id/action_recipeListFragment_to_recipeFragment"
@@ -14,6 +14,6 @@
     </fragment>
     <fragment
         android:id="@+id/recipeFragment"
-        android:name="com.example.jetpackcomposemvvm.ui.RecipeFragment"
+        android:name="com.example.jetpackcomposemvvm.presentation.ui.food.FoodFragment"
         android:label="RecipeFragment" />
 </navigation>

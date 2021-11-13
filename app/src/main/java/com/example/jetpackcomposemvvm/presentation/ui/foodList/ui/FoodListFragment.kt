@@ -1,38 +1,43 @@
-package com.example.jetpackcomposemvvm.ui
+package com.example.jetpackcomposemvvm.presentation.ui.foodList.ui
 
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.activity.contextaware.ContextAware
-import androidx.compose.foundation.BorderStroke
-import androidx.compose.foundation.border
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material.Button
-import androidx.compose.material.CircularProgressIndicator
 import androidx.compose.material.Text
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.ComposeView
-import androidx.compose.ui.platform.LocalContext
-import androidx.compose.ui.text.TextStyle
-import androidx.compose.ui.unit.TextUnit
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import androidx.compose.ui.viewinterop.AndroidView
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
-import com.codingwithmitch.foodrecipes.util.HorizontalDottedProgress
 import com.example.jetpackcomposemvvm.R
+import com.example.jetpackcomposemvvm.presentation.ui.foodList.viewModel.FoodListViewModel
+import dagger.hilt.android.AndroidEntryPoint
 
 
-class RecipeListFragment : Fragment() {
+@AndroidEntryPoint
+class FoodListFragment : Fragment() {
+    private val viewModel: FoodListViewModel by viewModels()
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        println("VIEWMODEL: ${viewModel}")
+        println("VIEWMODEL: ${viewModel.getRepo()}")
+        println("VIEWMODEL: token: ${viewModel.getAuthToken()}")
+
+    }
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
+
         return ComposeView(requireContext()).apply {
             setContent {
                 Column(
@@ -58,4 +63,5 @@ class RecipeListFragment : Fragment() {
             R.id.action_recipeListFragment_to_recipeFragment
         )
     }
+
 }
