@@ -1,24 +1,26 @@
 package com.example.jetpackcomposemvvm.presentation.ui.foodList.component
 
-import androidx.compose.foundation.layout.Column
-import androidx.compose.foundation.layout.Row
-import androidx.compose.foundation.layout.fillMaxWidth
-import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.text.KeyboardActions
 import androidx.compose.foundation.text.KeyboardOptions
 import androidx.compose.material.*
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Search
 import androidx.compose.runtime.Composable
+import androidx.compose.ui.Alignment
 import androidx.compose.ui.ExperimentalComposeUiApi
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.graphics.asImageBitmap
 import androidx.compose.ui.platform.SoftwareKeyboardController
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.input.ImeAction
 import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.unit.dp
+import androidx.constraintlayout.compose.ConstraintLayout
 import com.example.jetpackcomposemvvm.presentation.ui.foodList.ui.FoodCategory
+import com.example.jetpackcomposemvvm.utlis.*
+
 
 @ExperimentalComposeUiApi
 @Composable
@@ -29,11 +31,12 @@ fun SearchAppBar(
     categories: List<FoodCategory>,
     onCategorySelected: (String) -> Unit,
     keyboardController: SoftwareKeyboardController?,
-    selectedCategory: FoodCategory?
+    selectedCategory: FoodCategory?,
+    onToggleTheme: () -> Unit
 ) {
     Surface(
         modifier = Modifier.fillMaxWidth(),
-        color = MaterialTheme.colors.background,
+        color = MaterialTheme.colors.surface,
         elevation = 8.dp,
     ) {
         Column {
@@ -76,13 +79,33 @@ fun SearchAppBar(
                         ),
 
                     )
+                ConstraintLayout(
+                    modifier = Modifier.align(Alignment.CenterVertically)
+                ) {
+                    val menu = createRef()
+                    IconButton(
+                        modifier = Modifier.constrainAs(menu) {
+                            top.linkTo(parent.top)
+                            end.linkTo(parent.end)
+                        },
+
+
+                        onClick = onToggleTheme
+                    ) {
+                        val image = loadPicture(LIGHT).value
+                        image?.let {
+                            Icon(bitmap = it.asImageBitmap(), contentDescription = "")
+                        }
+                    }
+
+                }
             }
             ScrollableTabRow(
                 modifier = Modifier
                     .fillMaxWidth()
                     .padding(start = 8.dp, bottom = 8.dp),
                 selectedTabIndex = 0,
-                backgroundColor = Color.White,
+                backgroundColor = MaterialTheme.colors.surface,
 
                 ) {
                 for (category in categories) {

@@ -15,6 +15,8 @@ import com.example.jetpackcomposemvvm.R
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 
 const val DEFAULT_IMAGE = R.drawable.empty_plate
+const val NIGHT = R.drawable.ic_night
+const val LIGHT = R.drawable.ic_light
 
 @SuppressLint("UnrememberedMutableState")
 @ExperimentalCoroutinesApi
@@ -63,7 +65,7 @@ fun loadPicture(@DrawableRes drawable: Int): MutableState<Bitmap?> {
         .asBitmap()
         .load(drawable)
         .into(object : CustomTarget<Bitmap>() {
-            override fun onLoadCleared(placeholder: Drawable?) { }
+            override fun onLoadCleared(placeholder: Drawable?) {}
             override fun onResourceReady(
                 resource: Bitmap,
                 transition: Transition<in Bitmap>?

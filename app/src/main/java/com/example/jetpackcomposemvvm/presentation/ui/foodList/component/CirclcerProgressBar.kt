@@ -1,5 +1,6 @@
 package com.example.jetpackcomposemvvm.presentation.ui.foodList.component
 
+import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.material.CircularProgressIndicator
 import androidx.compose.material.MaterialTheme
@@ -19,7 +20,9 @@ fun CircularProgressBarIndicator(
 ) {
     if (isVisible) {
         ConstraintLayout(
-            modifier = Modifier.fillMaxWidth()
+            modifier = Modifier
+                .fillMaxWidth()
+                .background(color = MaterialTheme.colors.background)
         ) {
             val (progress, text) = createRefs()
             val guidLine = createGuidelineFromTop(0.3f)
