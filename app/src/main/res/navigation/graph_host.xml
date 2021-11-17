@@ -9,7 +9,7 @@
         android:name="com.example.jetpackcomposemvvm.presentation.ui.foodList.ui.FoodListFragment"
         android:label="RecipeListFragment" >
         <action
-            android:id="@+id/action_recipeListFragment_to_recipeFragment"
+            android:id="@+id/goToDescription"
             app:destination="@id/recipeFragment" />
     </fragment>
     <fragment

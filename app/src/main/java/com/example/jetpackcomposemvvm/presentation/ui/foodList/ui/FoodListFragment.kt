@@ -87,41 +87,27 @@ class FoodListFragment : Fragment() {
                             MyBottomBar()
                         },
                         drawerContent = {
-                               MyDrawer()
+                            MyDrawer()
                         },
-                        scaffoldState = scaffoldState
-                        ,
-                        snackbarHost= {
+                        scaffoldState = scaffoldState,
+                        snackbarHost = {
                             scaffoldState.snackbarHostState
                         }
 
 
                     ) {
-                        Box(
-                            modifier = Modifier
-                                .fillMaxWidth()
-                                .background(color = MaterialTheme.colors.surface)
-                        ) {
-                            LazyColumn {
-                                itemsIndexed(items = foods) { index, item ->
-                                    foodCard(food = item, onClick = {})
-                                }
-                            }
-                            // in the end be in the top in box
-                            CircularProgressBarIndicator(progressVisibility)
-
-                        }
+                        foodList(
+                            foods = foods,
+                            progressVisibility = progressVisibility,
+                            mode =dark.value,
+                            findNavController()
+                        )
                     }
                 }
             }
         }
     }
 
-    private fun goToRecipeFragment() {
-        findNavController().navigate(
-            R.id.action_recipeListFragment_to_recipeFragment
-        )
-    }
 
     @Composable
     fun MyBottomBar() {
@@ -151,8 +137,9 @@ class FoodListFragment : Fragment() {
             )
         }
     }
+
     @Composable
-    fun MyDrawer(){
+    fun MyDrawer() {
         Column() {
             Text(text = "Item1")
             Text(text = "Item2")
