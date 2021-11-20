@@ -7,6 +7,7 @@ simple food App for Display all Food , categories , All ingredaint for each food
 * Hilt for dependency Injection
 * Navigation Components
 * Retrofit2
+* Coroutines
 * App Themes 
 * Custom Fonts
 * Light and Dark theme
