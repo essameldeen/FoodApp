@@ -33,8 +33,8 @@ enum class HeartButtonState {
                     .clickable(
                         onClick = onToggle,
                     )
-                    .width(50.dp)
-                    .height(50.dp),
+                    .width(30.dp)
+                    .height(30.dp),
                 contentDescription = ""
             )
         }
@@ -46,8 +46,8 @@ enum class HeartButtonState {
                     .clickable(
                         onClick = onToggle,
                     )
-                    .width(50.dp)
-                    .height(50.dp),
+                    .width(30.dp)
+                    .height(30.dp),
                 contentDescription = ""
             )
         }

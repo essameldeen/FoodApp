@@ -1,8 +1,8 @@
 package com.example.jetpackcomposemvvm.domain.model
 
 import android.os.Parcelable
+import androidx.room.Entity
 import kotlinx.android.parcel.Parcelize
-
 @Parcelize
 data class Food(
     val id: Int? = null,

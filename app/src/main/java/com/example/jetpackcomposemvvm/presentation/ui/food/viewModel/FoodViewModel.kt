@@ -26,7 +26,7 @@ constructor(
     @Assisted private val state: SavedStateHandle
 ) :
     ViewModel() {
-    val recipe: MutableState<Food?> = mutableStateOf(null)
+    val foods: MutableState<Food?> = mutableStateOf(null)
 
     val loading = mutableStateOf(false)
 
@@ -41,7 +41,7 @@ constructor(
             try {
                 when (event) {
                     is FoodEvent.GetFoodEvent -> {
-                        if (recipe.value == null) {
+                        if (foods.value == null) {
                             getFood(event.id)
                         }
                     }
@@ -60,10 +60,12 @@ constructor(
         delay(1000)
 
         val recipe = repo.get(token = token, id = id)
-        this.recipe.value = recipe
+        this.foods.value = recipe
 
         state.set(STATE_KEY_RECIPE, recipe.id)
 
         loading.value = false
     }
+
+
 }

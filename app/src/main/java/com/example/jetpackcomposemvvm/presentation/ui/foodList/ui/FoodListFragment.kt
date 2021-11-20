@@ -17,6 +17,7 @@ import androidx.compose.material.TabRowDefaults.tabIndicatorOffset
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.AccountBalanceWallet
 import androidx.compose.material.icons.filled.BrokenImage
+import androidx.compose.material.icons.filled.Favorite
 import androidx.compose.material.icons.filled.Search
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.mutableStateOf
@@ -84,10 +85,10 @@ class FoodListFragment : Fragment() {
                             )
                         },
                         bottomBar = {
-                            MyBottomBar()
+                            //MyBottomBar()
                         },
                         drawerContent = {
-                            MyDrawer()
+                            //MyDrawer()
                         },
                         scaffoldState = scaffoldState,
                         snackbarHost = {
@@ -117,12 +118,15 @@ class FoodListFragment : Fragment() {
             BottomNavigationItem(
                 icon = { Icon(Icons.Default.BrokenImage, contentDescription = "") },
                 selected = false,
-                onClick = {}
+                onClick = {
+
+                }
             )
             BottomNavigationItem(
-                icon = { Icon(Icons.Default.Search, contentDescription = "") },
+                icon = { Icon(Icons.Default.Favorite, contentDescription = "") },
                 selected = true,
-                onClick = {}
+                onClick = {
+                }
             )
             BottomNavigationItem(
                 icon = {

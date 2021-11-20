@@ -12,6 +12,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.asImageBitmap
 import androidx.compose.ui.layout.ContentScale
+import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.example.jetpackcomposemvvm.domain.model.Food
 import com.example.jetpackcomposemvvm.utlis.DEFAULT_IMAGE
@@ -19,6 +20,7 @@ import com.example.jetpackcomposemvvm.utlis.loadImage
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 
 @ExperimentalCoroutinesApi
+
 @Composable
 fun foodCard(
     food: Food,
@@ -82,3 +84,4 @@ fun foodCard(
 
     }
 }
+

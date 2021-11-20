@@ -16,4 +16,12 @@
         android:id="@+id/recipeFragment"
         android:name="com.example.jetpackcomposemvvm.presentation.ui.food.FoodFragment"
         android:label="RecipeFragment" />
+    <fragment
+        android:id="@+id/foodFavourite"
+        android:name="com.example.jetpackcomposemvvm.presentation.ui.favourits.view.FoodFavourite"
+        android:label="FoodFavourite" >
+        <action
+            android:id="@+id/action_foodFavourite_to_recipeFragment"
+            app:destination="@id/recipeFragment" />
+    </fragment>
 </navigation>

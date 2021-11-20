@@ -28,7 +28,6 @@ class FoodFragment : Fragment() {
     private var mode: Boolean = false
     private val viewModel: FoodViewModel by viewModels()
     override fun onCreate(savedInstanceState: Bundle?) {
-
         super.onCreate(savedInstanceState)
         arguments?.getBoolean("mode")?.let { mode = it }
         arguments?.getInt("foodId")?.let { valuePassed ->
@@ -36,7 +35,6 @@ class FoodFragment : Fragment() {
             viewModel.onTriggerEvent(FoodEvent.GetFoodEvent(foodId))
         }
     }
-
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
@@ -47,7 +45,7 @@ class FoodFragment : Fragment() {
 
                 val loading = viewModel.loading.value
 
-                val food = viewModel.recipe.value
+                val food = viewModel.foods.value
 
                 val scaffoldState = rememberScaffoldState()
 
